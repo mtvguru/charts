@@ -29,7 +29,7 @@ input,button{border-radius:25px;background:black;text-align:center;}
 .lowercat {text-align: left;padding:10px}
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em; font-weight:bold}
-.lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+.lowerbar2{display: grid;grid-template-columns: auto;text-align:center}
 #midrighttab{display: grid;grid-template-columns: auto auto auto}
 thead{line-height: }
 .de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
@@ -37,7 +37,7 @@ thead{line-height: }
 td a{text-decoration-line: none}
 @media(min-width:641px){
   .hhr{width: 555px}
-	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	.lowerbar2{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 	#htc,.car{height: 80vh;width: 80vw;margin: auto;padding: 0}
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
@@ -66,6 +66,19 @@ td a{text-decoration-line: none}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
+.lowerbar{
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+.lowerbar a{
+  font-size: 0.75em;
+  font-weight: lighter;
+  padding: 10px 10px 10px 0px;
+  color:#32fbe2;
+  text-decoration: none
+}
+.lowerbar img{width:24px}
+.lowerbar .subimg{width:16px;height:16px;position: relative;right:9px;top:4px;margin-right:-11px}
 </style>
 
 <div class="topbar">
@@ -208,6 +221,26 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a>
 -->
 <br><br>
+<div class="lowerbar">Powered by Guru Network.
+<br>
+	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
+	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
+	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
+	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
+	<br><br>
+	<a target="_blank" href="https://messari.io/asset/ftm-guru"><img src="https://ftm.guru/icons/messari.svg"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/icons/FMC.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/icons/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/icons/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"><img class="subimg" src="https://ftm.guru/crypto-icons/64.png"></a>
+	<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"><img class="subimg" src="https://ftm.guru/crypto-icons/kucino.svg"></a>
+	<a target="_blank" href="https://nomics.com/assets/elite2-ftmguru"><img src="https://ftm.guru/icons/nomics.svg"></a>
+	<br><br>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/icons/medium.svg"></a>
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/crypto-icons/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/crypto-icons/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/crypto-icons/discord.svg"></a>
+</div>
 <a href="https://t.me/Sam4x" target="_blank">Contact us to Advertise Here.</a>
 </div>
 <hr><br><br>
@@ -230,7 +263,7 @@ Our Address: 0x921Ed37f62CBe4d86D38b720EF4a4a44B24a1C5D--></h5>
 <br><br>
 <hr class="hhr">
 <br><br>
-<div class="lowerbar" align="center">
+<div class="lowerbar2" align="center">
 	<div align="left" class="lowercat">
 		<span>Ecosystem</span><br>
 		<a href="https://mtv.guru" target="_blank">MTV.Guru</a><br>
@@ -328,7 +361,7 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.mtv.ac")}
 	//basics();
 	//console.log("in basics")
-	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",0])
+	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",1])
 }, false);
 
 trd=[];
@@ -350,13 +383,14 @@ async function f1(addinv)
 	7967274	-->	1648626251
 	*/
 	for(i=0;i< logs.length;i++){
-	ticks.push([(logs[i].blockNumber-4380652)*3000+1637866385000,addinv[1]?Number(logs[i].data.substr(0,66))/Number("0x"+logs[i].data.substr(66,64)):Number("0x"+logs[i].data.substr(66,64))/Number(logs[i].data.substr(0,66))])
+	ticks.push([(logs[i].blockNumber-4380652)*3000+1637866385000,addinv[1]==0?Number(logs[i].data.substr(0,66))/Number("0x"+logs[i].data.substr(66,64)):Number("0x"+logs[i].data.substr(66,64))/Number(logs[i].data.substr(0,66))])
 	}
-	console.log("see tics",ticks)
-	f2(ticks)
+	//console.log("see tics",ticks)
+	await f2(ticks)
 }
 async function f2(d)
 {
+	//console.log("f2",d)
 	t_0 = d[0][0]
 	t_n = d[d.length-1][0]
 	t_l = t_n - t_0
