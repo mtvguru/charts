@@ -57,11 +57,15 @@ td a{text-decoration-line: none}
 	cursor:  grab;
 }
 .c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+
+svg text {font-size: 4px !important;}
+
 @media(min-width:641px){
 	#c2a{
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
+	svg text {font-size: 2px !important;}
 }
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
@@ -184,8 +188,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				<option value="0xf0a21ff216f42d7b262261778b7ffe6685082169,1"> HTZ/USDC (CyberSwap)</option>
 				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,0"> MOON/MTV (MoonSwap)</option>
 				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,1"> MTV/MOON (MoonSwap)</option>
-				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,0"> BUSD/MTV (MoonSwap)</option>
-				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,1" selected> MTV/BUSD (MoonSwap)</option>
+				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,0" selected> MTV/BUSD (MoonSwap)</option>
+				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,1"> BUSD/MTV (MoonSwap)</option>
 				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,0"> BUSD/MOON (MoonSwap)</option>
 				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,1"> MOON/BUSD (MoonSwap)</option>
 			</select>
@@ -361,7 +365,7 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.mtv.ac")}
 	//basics();
 	//console.log("in basics")
-	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",1])
+	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",0])
 }, false);
 
 trd=[];
