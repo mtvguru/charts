@@ -1,0 +1,512 @@
+<html>
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>DEX Charts - mtv.Guru</title>
+<meta name="description" content="DEX Charts - mtv.Guru : MultiVAC blockchain DEX pair Explorer, Real-Time Trades, Analytics, Charting, Terminal">
+<meta name="keywords" content="DEX Charts - mtv.Guru : MultiVAC blockchain DEX pair Explorer, Real-Time Trades, Analytics, Charting, Terminal">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="shortcut icon" href="../img/ftm1337.jpg" />
+<style>
+*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+#midleft{display:grid;grid-template-columns:auto}
+#toparea,*{text-align:center}
+html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+#midright{overflow:auto;margin:0 5%}
+table td{padding: 10px}
+span{font-weight:bolder;}
+tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
+td:nth-child(3),th:nth-child(3),
+td:nth-child(5),th:nth-child(5),
+td:nth-child(8),th:nth-child(8)
+{display:none}
+pre{overflow-x:auto;}
+.topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+#midleft div,table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid; min-width:max-content}
+.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
+input,button{border-radius:25px;background:black;text-align:center;}
+.lowercat {text-align: left;padding:10px}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.25em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+#midrighttab{display: grid;grid-template-columns: auto auto auto}
+thead{line-height: }
+.de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
+.car{max-width: 90%;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;}
+td a{text-decoration-line: none}
+@media(min-width:641px){
+  .hhr{width: 555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	#htc,.car{height: 80vh;width: 80vw;margin: auto;padding: 0}
+	#midleft{display:grid;grid-template-columns:50% 50%}
+}
+
+#c2a{
+	display: grid;
+	grid-template-columns: auto;
+}
+.c2a{
+	border: 2px solid ;
+	width:220px;
+	margin: auto;
+	padding:5px;
+	margin: 5px auto;
+	background: rgba(0,255,255,0.2);
+	border-radius: 10px;
+	cursor:  grab;
+}
+.c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+@media(min-width:641px){
+	#c2a{
+		display: grid;
+		grid-template-columns: auto 280px 280px auto;
+	}
+}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
+</style>
+
+<div class="topbar">
+	<div align="center">
+		<a href="https://charts.mtv.guru"><b style="font-size:2em">charts.mtv.guru</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="https://mtv.guru/GRAIN">Kompound Protocol</a>
+		<a href="https://scan.mtv.guru/dex">DEX Rankings</a>
+		<a href="https://scan.mtv.guru/tokens">Token Explorer</a>
+		<a href="https://mtv.guru/airdropper">Airdropper</a>
+		<a href="https://scan.mtv.guru">scan.mtv.guru</a>
+	</div>
+</div>
+<br>
+<hr class="hhr">
+<br>
+<br>
+<div id="toparea">
+	<h1>Powered by Guru Network.<br><a href="https://discord.gg/QpyfMarNrV">Join our Discord!</a></h1>
+</div>
+
+
+
+<br>
+<br>
+
+	<div align="center">
+		<div class="car" >
+			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+			<polyline stroke-width="0.25" points="0 5, 100 5" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 20, 100 20" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 35, 100 35" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 50, 100 50" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 65, 100 65" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 80, 100 80" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+
+			<polyline stroke-width="0.25" points="10 0, 10 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="30 0, 30 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="50 0, 50 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="70 0, 70 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="90 0, 90 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+				<defs>
+    				<linearGradient id="gf" gradientTransform="rotate(90)">
+      					<stop stop-color="rgba(0,255,255,1)" offset="0%"></stop>
+      					<stop stop-color="rgba(0,155,155,0)" offset="100%"></stop>
+    				</linearGradient>
+    				<linearGradient id="gu" gradientTransform="rotate(90)">
+      					<stop stop-color="rgba(0,255,127,1)" offset="0%"></stop>
+      					<stop stop-color="rgba(0,255,127,0)" offset="100%"></stop>
+    				</linearGradient>
+  				</defs>
+				<polyline id="pl_t_f" fill-opacity="0.67" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="url(#gf)" stroke="aqua" stroke-opacity="1"></polyline>
+				<!--
+					<polyline id="pl_t_u" fill-opacity="0.67" stroke-width="1.0" points="82 53, 62 93, 5 12" fill="url(#gu)" stroke="#1f7" stroke-opacity="1"></polyline>
+				-->
+				<text style="font-size:2px" fill="#fff" id="ctv1" x="1" y="5">175k</text>
+				<text style="font-size:2px" fill="#fff" id="ctv2" x="1" y="20">150k</text>
+				<text style="font-size:2px" fill="#fff" id="ctv3" x="1" y="35">125k</text>
+				<text style="font-size:2px" fill="#fff" id="ctv4" x="1" y="50">100k</text>
+				<text style="font-size:2px" fill="#fff" id="ctv5" x="1" y="65">75k</text>
+				<text style="font-size:2px" fill="#fff" id="ctv6" x="1" y="80">50k</text>
+				<!--<text style="font-size:2px" fill="#fff" id="ctv7" x="1" y="95">25k</text>-->
+
+				<text style="font-size:2px" fill="#fff" id="ctl1" x="05" y="98">30 Jun</text>
+				<text style="font-size:2px" fill="#fff" id="ctl2" x="25" y="98">17 Jul</text>
+				<text style="font-size:2px" fill="#fff" id="ctl3" x="45" y="98">3 Jul</text>
+				<text style="font-size:2px" fill="#fff" id="ctl4" x="65" y="98">13 Jun</text>
+				<text style="font-size:2px" fill="#fff" id="ctl5" x="85" y="98">13 Jun</text>
+
+
+				<!--
+					<polyline id="pl_t_f_l" stroke-dasharray="2" stroke-width="0.04" points="0 35, 100 35" fill="none" stroke="aqua"></polyline>
+					<polyline id="pl_t_u_l" stroke-dasharray="2" stroke-dashoffset="2" stroke-width="0.04" fill="none" stroke="#1f7" points="0 25, 100 25"></polyline>
+				-->
+			</svg>
+			<br>
+			<br>
+			<span style="font-size:1.15em;display:grid;grid-template-columns:auto auto auto auto">
+				<span></span>
+				<span style="-webkit-text-decoration: underline 5px aqua;text-decoration: underline 5px aqua;color:aqua"></span>
+				<span style="-webkit-text-decoration: underline 5px #0f7;text-decoration: underline 5px #0f7;color:#0f7"></span>
+				<span></span>
+			</span>
+			<br>
+			<b>Historical Price Curve</b>
+			<br>
+			<br>
+			<!--
+				0x5269308450724513887ef0d51234976d7229c18e	wmtv-htz
+				0x32f38698550d4b36168a09df49ddd8cba67eaee5	mtv-usdc
+				0xf0a21ff216f42d7b262261778b7ffe6685082169	usdc-htz
+				0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C	1	moon-wmtv
+				0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0	2	busd-wmtv
+				0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6	3	busd-moon
+			-->
+			<select onchange="f1((this.value).split(','))" style="background:#000;color:#fff">
+				<option value="0x5269308450724513887ef0d51234976d7229c18e,0"> HTZ/MTV (CyberSwap)</option>
+				<option value="0x5269308450724513887ef0d51234976d7229c18e,1"> MTV/HTZ (CyberSwap)</option>
+				<option value="0x32f38698550d4b36168a09df49ddd8cba67eaee5,0"> MTV/USDC (CyberSwap)</option>
+				<option value="0x32f38698550d4b36168a09df49ddd8cba67eaee5,1"> USDC/MTV (CyberSwap)</option>
+				<option value="0xf0a21ff216f42d7b262261778b7ffe6685082169,0"> USDC/HTZ (CyberSwap)</option>
+				<option value="0xf0a21ff216f42d7b262261778b7ffe6685082169,1"> HTZ/USDC (CyberSwap)</option>
+				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,0"> MOON/MTV (MoonSwap)</option>
+				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,1"> MTV/MOON (MoonSwap)</option>
+				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,0" selected> MTV/BUSD (MoonSwap)</option>
+				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,1"> BUSD/MTV (MoonSwap)</option>
+				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,0"> BUSD/MOON (MoonSwap)</option>
+				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,1"> MOON/BUSD (MoonSwap)</option>
+			</select>
+			<br>
+			<br>
+		</div>
+	</div>
+<br><br>
+<br>
+<br>
+
+<div align="center" class="advert">
+<!--
+<pre>Get $ELITE Tokens
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<div id="c2a">
+	<div class="">
+	</div>
+	<div class="c2a" id="a2m">
+		🦊 Add ELITE to MetaMask
+	</div>
+	<div class="c2a" id="ibe" onclick="c1()">
+		Insta-Buy 15 FTM of ELITE
+	</div>
+	<div class="">
+	</div>
+</div>
+<br>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a>
+-->
+<br><br>
+<a href="https://t.me/Sam4x" target="_blank">Contact us to Advertise Here.</a>
+</div>
+<hr><br><br>
+<h5 align="center" id="disclaimer"><b><u>Disclaimer & Notice</u></b><br>
+All information presented here is only for aesthetic uses and posesses no validity to settle any claims. It is also non-exhaustive and prone to error. Advertisements are not endorsements. This dashboard is ultra-real time - It means that the data on this page has zero latency, unlike CMC or CG which have 1-10 minutes old data. FTM.guru and FMC.guru are trying to keep up with our <b>Fast First</b> motto. <i>A much deserved shoutout to all open-source and web3 developers for their benign Services!</i> A "-" or a "0" represents unavailability or anomalities in data and it is masked to suppress pollution.<br>We encourage you to report inconsistencies, ask business queries, request new Token, Protocol or DEX listings or start an ad campaign at one of our community channels:<br>
+<b><a href="https://t.me/FTM1337" target="_blank">Telegram</a> or <a href="https://discord.gg/QpyfMarNrV" target="_blank">Discord.</a></b><!--
+Our Address: 0x921Ed37f62CBe4d86D38b720EF4a4a44B24a1C5D--></h5>
+<br>
+<br>
+<div align="center" id="spadd" style="">
+<font id="spadf" size="2" style="text-align:center">(Sponsored Ad)</font>
+<br>
+<i><a href="https://t.me/FTM1337">Please Telegram us for queries.</a></i>
+<br>
+<a id="spada" href="" target="_blank">
+<img id="spadi" src="" width="80%"></img><br>
+</a>
+</div>
+
+<br><br>
+<hr class="hhr">
+<br><br>
+<div class="lowerbar" align="center">
+	<div align="left" class="lowercat">
+		<span>Ecosystem</span><br>
+		<a href="https://mtv.guru" target="_blank">MTV.Guru</a><br>
+		<a href="https://fmc.guru" target="_blank">FantomMarketCap</a><br>
+		<a href="https://ftm.guru" target="_blank">FTM1337</a><br>
+		<a href="https://kcc.guru" target="_blank">Kucino Casino</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Farming</span><br>
+		<a href="https://mtv.guru/GRAIN.html">🌾 Kompound</a><br>
+		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
+		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
+		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
+	</div>
+	<div class="lowercat">
+		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
+		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
+		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
+		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
+	</div>
+	<div class="lowercat">
+		<span><a href="https://kcc.guru/dashboard.html">Dashboard</a></span><br>
+		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
+		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Our Dapps</span><br>
+		<a href="https://ftm.guru/degam.html">✨ FTM CASINO</a><br>
+		<a href="https://ftm.guru/degam.html">🎰 KCS Kucino</a><br>
+		<a href="https://ftm.guru/approver.html">✅ Approver</a><br>
+		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Chain Tools</span><br>
+		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
+		<a href="https://ftm.guru/fantomscan.html">🔍 FantomScan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">🔎 kscan</a><br>
+		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Opera Utilities</span><br>
+		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
+		<a href="https://t.me/FTM1337/12497" target="_blank">🤖 GambleBot Telegram</a><br>
+		<a href="https://ftm.guru/index.html">🗳 Elite-Gems Voting</a>
+	</div>
+	<div class="lowercat">
+		<span>$KUCINO</span><br>
+		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
+		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
+		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
+		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
+	</div>
+	<div class="lowercat">
+		<span>Resources</span><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">Kucino Roadmap</a><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">KUCINO Tokenimcs</a><br>
+		<a target="_blank" href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689">385 ELITE ETL</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">KCS Liquidity Lock</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">70% KUCINO ETL</a><br>
+		<a target="_blank" href="docs">📚 Documentation</a><br>
+	</div>
+	<div class="lowercat">
+		<span>Telegrams</span><br>
+		<a target="_blank" href="https://t.me/ftm1337">FantomOpera#1337</a><br>
+		<a target="_blank" href="https://t.me/ftmguru">Announcements</a><br>
+		<a target="_blank" href="https://t.me/kucino">Kucino Group</a><br>
+		<a target="_blank" href="https://t.me/kccguru">KCC.guru Channel</a><br>
+		<a target="_blank" href="https://t.me/kccguru">FMC New Listings</a><br>
+	</div>
+	<div class="lowercat">
+		<span>Social & Media</span><br>
+		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
+		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
+		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a><br>
+		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a><br>
+	</div>
+	<div class="lowercat">
+		<a href="https://mtv.guru/index.html"><b style="font-size:2em"><code>MTV.guru</code></b></a><br>
+		<a href="https://ftm.guru/index.html"><b style="font-size:2em"><code>FTM.guru</code></b></a><br>
+		<a href="https://fmc.guru/index.html"><b style="font-size:2em"><code>FMC.guru</code></b></a><br>
+		<a href="https://kcc.guru/index.html"><b style="font-size:2em"><code>KCC.guru</code></b></a>
+	</div>
+	<div class="lowercat">
+	</div>
+</div>
+
+
+<script src="https://ftm.guru/web3.min.js">
+</script>
+<script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId==62621)){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.mtv.ac")}
+	//basics();
+	//console.log("in basics")
+	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",0])
+}, false);
+
+trd=[];
+trd2=[];
+store=[];
+async function f1(addinv)
+{
+	/*
+	await fetch("https://ftm.guru/LF/tvl.json")
+		.then(dd=>{return dd.json()})
+		.then(dm=>{trd=dm;store=dm;f2(trd);})
+	*/
+	//console.log("gettin logs")
+	logs = await web3.eth.getPastLogs({address:addinv[0],topics:["0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1"],fromBlock:6e6,toBlock:"latest"})
+	ticks = []
+	//console.log("got logs",logs)
+	/*
+	4380652	-->	1637866385
+	7967274	-->	1648626251
+	*/
+	for(i=0;i< logs.length;i++){
+	ticks.push([(logs[i].blockNumber-4380652)*3000+1637866385000,addinv[1]?Number(logs[i].data.substr(0,66))/Number("0x"+logs[i].data.substr(66,64)):Number("0x"+logs[i].data.substr(66,64))/Number(logs[i].data.substr(0,66))])
+	}
+	console.log("see tics",ticks)
+	f2(ticks)
+}
+async function f2(d)
+{
+	t_0 = d[0][0]
+	t_n = d[d.length-1][0]
+	t_l = t_n - t_0
+
+	vmax = 0;vmt=0
+	for(i=0;i< d.length;i++) {	if(d[i][1]>vmax){vmax=d[i][1];vmt=d[i][0]}	}
+
+	p = []
+	for(i=0;i< d.length;i++)
+	{
+		p[i] = [0,0]
+		p[i][0]	=	(d[i][0]-t_0)/t_l*100;
+		p[i][1]	=	d[i][1]/vmax*100;
+	}
+	var fline= document.getElementById('pl_t_f');
+
+  	var fpoints = fline.getAttribute('points');
+
+	fpoints=`-10 100,`;
+
+	for(i=0;i< p.length-1;i++)
+	{
+		fpoints+=i==0?`${-10} ${100-p[i][1]},`:``
+		fpoints+=`${p[i][0]} ${100-p[i][1]},`;
+		fpoints+=i== p.length-1?`${110} ${100-p[i][1]},`:``
+	}
+
+	fpoints+=`110 100,`;
+
+	fline.setAttribute('points', fpoints );
+
+
+	//date
+	//dstr = (tm) => {dt0=new Date(tf+tl*tm); return ((Zdt0.getDate()+1)+"."+(dt0.getUTCMonth()+1)+"."+dt0.getUTCYear())}
+	$("ctl1").innerHTML = (new Date(t_0+t_l*.1)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl2").innerHTML = (new Date(t_0+t_l*.3)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl3").innerHTML = (new Date(t_0+t_l*.5)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl4").innerHTML = (new Date(t_0+t_l*.7)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl5").innerHTML = (new Date(t_0+t_l*.9)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctv1").innerHTML = (vmax*0.95).toFixed(8);
+	$("ctv2").innerHTML = (vmax*0.80).toFixed(8);
+	$("ctv3").innerHTML = (vmax*0.65).toFixed(8);
+	$("ctv4").innerHTML = (vmax*0.50).toFixed(8);
+	$("ctv5").innerHTML = (vmax*0.35).toFixed(8);
+	$("ctv6").innerHTML = (vmax*0.20).toFixed(8);
+//	$("ctv7").innerHTML = (vmax*0.05).toFixed(8);
+
+
+
+	/*
+	trd = d
+	store = d
+	ti=trd[d.length-1][0];
+	tf=trd[0][0];
+	tl=ti-tf;
+	trd2=trd;
+	vmax=0;
+	for(i=0;i< store.length;i++)
+	{
+		if(trd[i][1]>vmax){vmax=trd[i][1]}
+		///if(trd[i][1]*trd[i][2]>vmax){vmax=trd[i][1]*trd[i][2]}
+	}
+	for(i=0;i< store.length;i++)
+	{
+		trd2[i][0]=(trd[i][0]-tf)/tl*100;
+		trd2[i][1]=trd[i][1]/vmax*100;
+		///trd2[i][2]=store[i][1]*store[i][2];
+	}
+	var fline= document.getElementById('pl_t_f');
+	///var uline= document.getElementById('pl_t_u');
+  	var fpoints = fline.getAttribute('points');
+  	///var upoints = uline.getAttribute('points');
+	///fpoints ="-1010 99,"
+	///upoints ="-1010 99,"
+	for(i= trd.length-1;i>-1;i--)
+	{
+		fpoints+=`${trd2[i][0]} ${100-trd2[i][1]},`;
+		///upoints+=`${trd2[i][0]} ${100-trd2[i][2]},`;
+	}
+	///fpoints+="1010,101"
+	///upoints+="1010,101"
+	fline.setAttribute('points', fpoints );
+	/*
+	///uline.setAttribute('points', upoints );
+	//da
+	///$("pl_t_f_l").setAttribute('points',`0 ${100-trd2[0][1]}, 100 ${100-trd2[0][1]}`);
+	///$("pl_t_u_l").setAttribute('points',`0 ${100-trd2[0][2]}, 100 ${100-trd2[0][2]}`);
+	//date
+	//dstr = (tm) => {dt0=new Date(tf+tl*tm); return ((Zdt0.getDate()+1)+"."+(dt0.getUTCMonth()+1)+"."+dt0.getUTCYear())}
+	$("ctl1").innerHTML = (new Date(tf+tl*.1)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl2").innerHTML = (new Date(tf+tl*.3)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl3").innerHTML = (new Date(tf+tl*.5)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl4").innerHTML = (new Date(tf+tl*.7)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl5").innerHTML = (new Date(tf+tl*.9)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctv1").innerHTML = (vmax/1000*0.95).toFixed(0)+"k";
+	$("ctv2").innerHTML = (vmax/1000*0.80).toFixed(0)+"k";
+	$("ctv3").innerHTML = (vmax/1000*0.65).toFixed(0)+"k";
+	$("ctv4").innerHTML = (vmax/1000*0.50).toFixed(0)+"k";
+	$("ctv5").innerHTML = (vmax/1000*0.35).toFixed(0)+"k";
+	$("ctv6").innerHTML = (vmax/1000*0.20).toFixed(0)+"k";
+//	$("ctv7").innerHTML = (vmax/1000*0.05).toFixed(0)+"k";
+	*/
+}
+async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+
+
+
+///f1()
+
+
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
+function $(_) {return document.getElementById(_);}
+
+</script>
+</html>
