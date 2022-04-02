@@ -449,13 +449,13 @@ async function f2(d)
 	$("ctl3").innerHTML = (new Date(t_0+t_l*.5)).toDateString().substr(4).replace(" ","-").split(" ")[0];
 	$("ctl4").innerHTML = (new Date(t_0+t_l*.7)).toDateString().substr(4).replace(" ","-").split(" ")[0];
 	$("ctl5").innerHTML = (new Date(t_0+t_l*.9)).toDateString().substr(4).replace(" ","-").split(" ")[0];
-	$("ctv1").innerHTML = (vmax*0.95).toFixed(8);
-	$("ctv2").innerHTML = (vmax*0.80).toFixed(8);
-	$("ctv3").innerHTML = (vmax*0.65).toFixed(8);
-	$("ctv4").innerHTML = (vmax*0.50).toFixed(8);
-	$("ctv5").innerHTML = (vmax*0.35).toFixed(8);
-	$("ctv6").innerHTML = (vmax*0.20).toFixed(8);
-//	$("ctv7").innerHTML = (vmax*0.05).toFixed(8);
+	$("ctv1").innerHTML = (vmax-vm2m*0.05).toFixed(8);
+	$("ctv2").innerHTML = (vmax-vm2m*0.20).toFixed(8);
+	$("ctv3").innerHTML = (vmax-vm2m*0.35).toFixed(8);
+	$("ctv4").innerHTML = (vmax-vm2m*0.50).toFixed(8);
+	$("ctv5").innerHTML = (vmax-vm2m*0.65).toFixed(8);
+	$("ctv6").innerHTML = (vmax-vm2m*0.80).toFixed(8);
+//	$("ctv7").innerHTML = (vmax-vm2m*0.95).toFixed(8);
 
 
 
