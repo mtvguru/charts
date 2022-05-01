@@ -9,6 +9,9 @@
 </head>
 <link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
+*{
+scroll-behavior: smooth !important;
+}
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
 #midleft{display:grid;grid-template-columns:auto}
 #toparea,*{text-align:center}
@@ -39,7 +42,7 @@ td a{text-decoration-line: none}
 @media(min-width:641px){
   .hhr{width: 555px}
 	.lowerbar2{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
-	#htc,.car{height: 80vh;width: 80vw;margin: auto;padding: 0}
+	#htc,.car{height: 60vh;width: calc(max(60vw,60vh));margin: auto;padding: 0}
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
 
@@ -66,7 +69,7 @@ svg text {font-size: 4px !important;}
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
-	svg text {font-size: 2px !important;}
+	svg text {font-size: 3px !important;}
 	svg polyline#pl_t_f {stroke-width: 0.25;}
 }
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
@@ -85,6 +88,14 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 }
 .lowerbar img{width:24px}
 .lowerbar .subimg{width:16px;height:16px;position: relative;right:9px;top:4px;margin-right:-11px}
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+*{font-family:regular;}
+
 </style>
 
 <div class="topbar">
