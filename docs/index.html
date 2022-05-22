@@ -7,7 +7,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/icons/FMC.svg" />
 </head>
-<link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
 *{
 scroll-behavior: smooth !important;
@@ -198,6 +197,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				<option value="0xfcd8c457a7490646e7b2a8e69b8fb4a73614e2ae,1,18,18"> MTV/SWAPPY (MtvSwap)</option>
 				<option value="0x7229E9f024A69fd1893c6667AC00156d71C53175,0,18,18"> MTV/DIRT (MtvSwap)</option>
 				<option value="0x7229E9f024A69fd1893c6667AC00156d71C53175,1,18,18"> DIRT/MTV (MtvSwap)</option>
+				<option value="0x78AB3C2E88880C958eD87d3c26E3bA612dFE5e48,0,18,18,7742205"> MTV/ISAAC (MtvSwap)</option>
+				<option value="0x78AB3C2E88880C958eD87d3c26E3bA612dFE5e48,1,18,18,7742205"> ISAAC/MTV (MtvSwap)</option>
 			</select>
 		<br>
 		<br>
@@ -208,11 +209,11 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 <details>
 	<summary><b>(+) Add Custom Pair?</b></summary>
 	<br>
-	Address of Liquidity Pool<input id="cusp_p" placeholder="'Pool' Address"><br>
+	Address of Liquidity Pool: <input id="cusp_p" placeholder="'Pool' Address"><br>
 	Asset Token's Decimals: <input id="cusp_da" type="number" placeholder="Asset Decimals" value="18"><br>
 	Base Quote's Decimals: <input id="cusp_db" type="number" placeholder="Base Decimals" value="18"><br>
 	Invert the Chart? <select id="cusp_i" style="background:#000;color:#fff;border-radius:25px"><option value="0">No</option><option value="1">Yes</option></select><br><br>
-	<button onclick="f1(new Array( $('cusp_p').value),$('cusp_i').value),$('cusp_da').value),$('cusp_db').value))" style="font-size:1.25em">Plot Graph!</button>
+	<button onclick="f1(new Array($('cusp_p').value,$('cusp_i').value,$('cusp_da').value,$('cusp_db').value))" style="font-size:1.25em">Plot Graph!</button>
 </details>
 <br><br>
 <span id="f1_m"></span>
@@ -396,9 +397,14 @@ async function f1(addinv)
 		.then(dm=>{trd=dm;store=dm;f2(trd);})
 	*/
 	//console.log("gettin logs")
-	logs = await web3.eth.getPastLogs({address:addinv[0],topics:["0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1"],fromBlock:6e6,toBlock:"latest"})
+	logs = await web3.eth.getPastLogs({
+		address:addinv[0],
+		topics:["0x1c411e9a96e071241c2f21f7726b17ae89e3cab4c78be50e062b03a9fffbbad1"],
+		fromBlock:typeof addinv[4] == "undefined" ? String(6e6) : addinv[4],
+		toBlock:"latest"
+	})
 	ticks = []
-	//console.log("got logs",logs)
+	console.log("got logs",logs)
 	/*
 	4380652	-->	1637866385
 	7967274	-->	1648626251
