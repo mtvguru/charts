@@ -62,6 +62,7 @@ td a{text-decoration-line: none}
 .c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
 
 svg text {font-size: 4px !important;}
+svg text.watermark{font-size: 12px !important;}
 
 @media(min-width:641px){
 	#c2a{
@@ -111,14 +112,14 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 </div>
 <br>
 <hr class="hhr">
-<br><b>Historical Price Curves for<br>DeFi on MultiVAC </b>
+<br><b>DeFi Charts on MultiVAC</b><br><a href="https://discord.gg/QpyfMarNrV">Powered by Guru Network.</a>
 <br>
 <br>
-<br><a href="https://discord.gg/QpyfMarNrV">Powered by Guru Network.</a>
 
 
 		<div class="car" >
 			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+				<text x="10%" y="60%" fill="grey" class="watermark">charts.mtv.guru</text>
 				<polyline stroke-width="0.25" points="0 5, 100 5" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
 				<polyline stroke-width="0.25" points="0 20, 100 20" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
 				<polyline stroke-width="0.25" points="0 35, 100 35" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
@@ -166,6 +167,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				-->
 			</svg>
 			<br>
+			<br>
 			<!--
 				0x5269308450724513887ef0d51234976d7229c18e	wmtv-htz
 				0x32f38698550d4b36168a09df49ddd8cba67eaee5	mtv-usdc
@@ -174,9 +176,11 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0	2	busd-wmtv
 				0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6	3	busd-moon
 			-->
-			<select onchange="f1((this.value).split(','))" style="background:#000;color:#fff;border-radius:25px">
-				<option value="0x6ab59648514af1083949f850ef50957ec5d59e64,0,18,18"> MTV/ETH (V.A.X.)</option>
-				<option value="0x6ab59648514af1083949f850ef50957ec5d59e64,1,18,18"> ETH/MTV (V.A.X.)</option>
+			<select id="togs" onchange="f1((this.value).split(','))" style="background:#000;color:#fff;border-radius:25px">
+				<option value="0x6AB59648514Af1083949f850Ef50957Ec5D59E64,0,18,6,9750000"> USDC/MTV (V.A.X.)</option>
+				<option value="0x6AB59648514Af1083949f850Ef50957Ec5D59E64,1,18,6,9750000" selected> MTV/USDC (V.A.X.)</option>
+				<option value="0xB82d97f46D75910a9f27f73C49b2134B2B922A02,0,18,18"> MTV/ETH (V.A.X.)</option>
+				<option value="0xB82d97f46D75910a9f27f73C49b2134B2B922A02,1,18,18"> ETH/MTV (V.A.X.)</option>
 				<option value="0x523DA35cF7d380315a6Eb9D5c167Acad35E5F39B,0,18,18"> MTV/USDT (V.A.X.)</option>
 				<option value="0x523DA35cF7d380315a6Eb9D5c167Acad35E5F39B,1,18,18"> USDT/MTV (V.A.X.)</option>
 				<option value="0x775Ea316984A7D5a49faDB4E5f0d5F2AEb009a2F,0,18,18"> BUSD/USDC (V.A.X.)</option>
@@ -199,7 +203,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				<option value="0xa106abf2b23fc78908f3b54b46c8a0edf8e31782,1,18,18"> ISAAC/MTV (CyberSwap)</option>
 				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,0,18,18"> MTV/MOON (MoonSwap)</option>
 				<option value="0x57e962Ac51b5b197aA0f11e8A0a42172A706a70C,1,18,18"> MOON/MTV (MoonSwap)</option>
-				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,0,18,18" selected> MTV/BUSD (MoonSwap)</option>
+				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,0,18,18"> MTV/BUSD (MoonSwap)</option>
 				<option value="0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0,1,18,18"> BUSD/MTV (MoonSwap)</option>
 				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,0,18,18"> BUSD/MOON (MoonSwap)</option>
 				<option value="0xbdE12b1a40d6E1B3f4558fBaADE2A60961e713e6,1,18,18"> MOON/BUSD (MoonSwap)</option>
@@ -220,6 +224,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 </div>
 <br>
 <br>
+<br>
 <details>
 	<summary><b>(+) Add Custom Pair?</b></summary>
 	<br>
@@ -229,6 +234,9 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 	Invert the Chart? <select id="cusp_i" style="background:#000;color:#fff;border-radius:25px"><option value="0">No</option><option value="1">Yes</option></select><br><br>
 	<button onclick="f1(new Array($('cusp_p').value,$('cusp_i').value,$('cusp_da').value,$('cusp_db').value))" style="font-size:1.25em">Plot Graph!</button>
 </details>
+<br>
+<br>
+<div id="currents"></div>
 <br><br>
 <span id="f1_m"></span>
 <br><br>
@@ -397,7 +405,7 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.mtv.ac")}
 	//basics();
 	//console.log("in basics")
-	f1(["0x6184E61aA610eFd4a37EC5E6b51f4cC5042e8fA0",0,18,18])
+	f1(["0x6AB59648514Af1083949f850Ef50957Ec5D59E64",1,18,6,9750000])
 }, false);
 
 trd=[];
@@ -430,9 +438,9 @@ async function f1(addinv)
 	console.log("see adinv",addinv)
 	for(i=0;i< ticks.length;i++){ticks[i][1] /= addinv[1] == 0 ? 10**(addinv[2]-addinv[3]) : 10**(addinv[3]-addinv[2]) }
 	console.log("see ftics",ticks)
-	await f2(ticks)
+	await f2(ticks,logs[logs.length-1])
 }
-async function f2(d)
+async function f2(d,l)
 {
 	//console.log("f2",d)
 	t_0 = d[0][0]
@@ -540,7 +548,36 @@ async function f2(d)
 	$("ctv6").innerHTML = (vmax/1000*0.20).toFixed(0)+"k";
 //	$("ctv7").innerHTML = (vmax/1000*0.05).toFixed(0)+"k";
 	*/
+	console.log("L:",l)
+	pars = ($("togs").value).split(",")
+	desc = (($("togs").innerText).split(" ")[0]).split("/")
+	_elap = new Date(Date.now()-((l.blockNumber-4380652)*3000+1637866385000));console.log("elap",_elap)
+	r0=(pars[1]==0?Number(l.data.substr(0,66)):Number("0x"+l.data.substr(66,64)))/10**(pars[1]==0?pars[2]:pars[3])
+	r1=(pars[1]==0?Number("0x"+l.data.substr(66,64)):Number(l.data.substr(0,66)))/10**(pars[1]==0?pars[3]:pars[2])
+	$("currents").innerHTML = `
+		<b><u>Liquidity Strength</u></b><br>
+		${desc[0]} : ${r0}<br>
+		${desc[1]} : ${r1}<br><br>
+		<b><u>Last Trade</u></b><br>
+		${elap(_elap)}<br><br>
+		<b><u>Current Rates</u></b><br>
+		1 ${desc[0]} = ${r1/r0} ${desc[1]}<br>
+		1 ${desc[1]} = ${r0/r1} ${desc[0]}<br>
+	`
 }
+function elap(e) {
+	//e=new Date(e)
+	yr=e.getUTCFullYear()-1970+"yrs."
+	mo=e.getUTCMonth()+"mths."
+	da=e.getUTCDate()-1+"days"
+	hr=e.getUTCHours()+"hrs."
+	mi=e.getUTCMinutes()+"min."
+	se=e.getUTCSeconds()+"secs."
+	return(`
+		${yr=="0yrs."?"":yr} ${mo=="0mths."?"":mo} ${da=="0days"?"":da} ${hr=="0hrs."?"":hr} ${mi=="mins."?"":mi} ${se=="secs."?"":se} ago
+	`)
+}
+
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 
 
