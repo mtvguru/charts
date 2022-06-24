@@ -33,6 +33,9 @@ input,button{border-radius:25px;background:black;text-align:center;}
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar2{display: grid;grid-template-columns: auto;text-align:center}
+.twocard{display: grid;grid-template-columns:auto;}
+.twocard div{border:2px solid aqua;margin:10px;padding: 10px;border-radius: 10px;background:rgba(0,255,255,0.1337);text-align:left}
+.twocard div div{font-size: 1.25em;text-align:center}
 #midrighttab{display: grid;grid-template-columns: auto auto auto}
 thead{line-height: }
 .de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
@@ -43,6 +46,7 @@ td a{text-decoration-line: none}
 	.lowerbar2{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 	#htc,.car{height: 60vh;width: calc(max(60vw,60vh));margin: auto;padding: 0}
 	#midleft{display:grid;grid-template-columns:50% 50%}
+	.twocard{grid-template-columns:auto auto auto auto auto ;}
 }
 
 #c2a{
@@ -113,10 +117,18 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 <br>
 <hr class="hhr">
 <br><b>DeFi Charts on MultiVAC</b><br><a href="https://discord.gg/QpyfMarNrV">Powered by Guru Network.</a>
+
 <br>
 <br>
-
-
+<details>
+	<summary><b>(+) Add Custom Pair?</b></summary>
+	<br>
+	Address of Liquidity Pool: <input id="cusp_p" placeholder="'Pool' Address"><br>
+	Asset Token's Decimals: <input id="cusp_da" type="number" placeholder="Asset Decimals" value="18"><br>
+	Base Quote's Decimals: <input id="cusp_db" type="number" placeholder="Base Decimals" value="18"><br>
+	Invert the Chart? <select id="cusp_i" style="background:#000;color:#fff;border-radius:25px"><option value="0">No</option><option value="1">Yes</option></select><br><br>
+	<button onclick="f1(new Array($('cusp_p').value,$('cusp_i').value,$('cusp_da').value,$('cusp_db').value))" style="font-size:1.25em">Plot Graph!</button>
+</details>
 		<div class="car" >
 			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
 				<text x="10%" y="60%" fill="grey" class="watermark">charts.mtv.guru</text>
@@ -224,19 +236,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 </div>
 <br>
 <br>
-<br>
-<details>
-	<summary><b>(+) Add Custom Pair?</b></summary>
-	<br>
-	Address of Liquidity Pool: <input id="cusp_p" placeholder="'Pool' Address"><br>
-	Asset Token's Decimals: <input id="cusp_da" type="number" placeholder="Asset Decimals" value="18"><br>
-	Base Quote's Decimals: <input id="cusp_db" type="number" placeholder="Base Decimals" value="18"><br>
-	Invert the Chart? <select id="cusp_i" style="background:#000;color:#fff;border-radius:25px"><option value="0">No</option><option value="1">Yes</option></select><br><br>
-	<button onclick="f1(new Array($('cusp_p').value,$('cusp_i').value,$('cusp_da').value,$('cusp_db').value))" style="font-size:1.25em">Plot Graph!</button>
-</details>
-<br>
-<br>
-<div id="currents"></div>
+<h3>Pair Details</h3>
+<div id="currents" class="twocard"></div>
 <br><br>
 <span id="f1_m"></span>
 <br><br>
@@ -267,7 +268,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 <br><br>
 <div class="lowerbar">Powered by Guru Network.
 <br>
-	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
+	<a target="_blank" href="https://ech.guru">ECH.guru</a>
+	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
 	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
 	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
 	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
@@ -555,14 +557,31 @@ async function f2(d,l)
 	r0=(pars[1]==0?Number(l.data.substr(0,66)):Number("0x"+l.data.substr(66,64)))/10**(pars[1]==0?pars[2]:pars[3])
 	r1=(pars[1]==0?Number("0x"+l.data.substr(66,64)):Number(l.data.substr(0,66)))/10**(pars[1]==0?pars[3]:pars[2])
 	$("currents").innerHTML = `
-		<b><u>Liquidity Strength</u></b><br>
-		${desc[0]} : ${r0}<br>
-		${desc[1]} : ${r1}<br><br>
-		<b><u>Last Trade</u></b><br>
-		${elap(_elap)}<br><br>
-		<b><u>Current Rates</u></b><br>
-		1 ${desc[0]} = ${r1/r0} ${desc[1]}<br>
-		1 ${desc[1]} = ${r0/r1} ${desc[0]}<br>
+		<span></span>
+		<div>
+			<div align="center">Liquidity Strength</div><br>
+			${desc[0]} : ${r0}<br><br>
+			${desc[1]} : ${r1}<br>
+		</div>
+		<span></span>
+		<div>
+			<div align="center">Last Trade</div><br>
+			${elap(_elap)}<br>
+		</div>
+		<span></span>
+		<span></span>
+		<div>
+			<div align="center">Current Rates</div><br>
+			1 ${desc[0]} = ${r1/r0} ${desc[1]}<br><br>
+			1 ${desc[1]} = ${r0/r1} ${desc[0]}<br>
+		</div>
+		<span></span>
+		<div>
+			<div align="center">Explore Pool</div><br>
+			<a href="https://mtvscout.com/address/${l.address}/token-transfers" target="_blank">mtvscout.com</a><br><br>
+			<a href="https://e.mtv.ac/account?address=${l.address}" target="_blank">e.mtv.ac</a><br><br>
+		</div>
+		<span></span>
 	`
 }
 function elap(e) {
