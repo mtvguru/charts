@@ -201,8 +201,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 			<option value="0x36ea2506f1184fcc33213b11deeea1a5cfbec781,0,18,18"> BUSD/USDT (V.A.X.)</option>
 			<option value="0x36ea2506f1184fcc33213b11deeea1a5cfbec781,1,18,18"> USDT/BUSD (V.A.X.)</option>
 			<option value="0xEd60dD51D2C6290DdF9007c084396DF8Cb1Ce583,0,18,18"> MTV/ISAAC (V.A.X.)</option>
-			<option value="0xCC9f5690a5Bb22f75F3736151228F516875F5774,0,18,18"> MTV/PROX (V.A.X.)</option>
-			<option value="0xCC9f5690a5Bb22f75F3736151228F516875F5774,1,18,18"> PROX/MTV (V.A.X.)</option>
+			<option value="0xCC9f5690a5Bb22f75F3736151228F516875F5774,0,18,6"> USDC/PROX (V.A.X.)</option>
+			<option value="0xCC9f5690a5Bb22f75F3736151228F516875F5774,1,18,6"> PROX/USDC (V.A.X.)</option>
 			<option value="0xEd60dD51D2C6290DdF9007c084396DF8Cb1Ce583,1,18,18"> ISAAC/MTV (V.A.X.)</option>
 			<option value="0xf1c8dc0cea54d40359d5f84dbf323a869230d475,0,18,18"> MTV/DIRT (V.A.X.)</option>
 			<option value="0xf1c8dc0cea54d40359d5f84dbf323a869230d475,1,18,18"> DIRT/MTV (V.A.X.)</option>
@@ -555,7 +555,7 @@ async function f2(d,l)
 	*/
 	console.log("L:",l)
 	pars = ($("togs").value).split(",")
-	desc = (($("togs").innerText).split(" ")[0]).split("/")
+	desc = ((($("togs").getElementsByTagName("option")[$("togs").selectedIndex]).innerText).split(" ")[0]).split("/")
 	_elap = new Date(Date.now()-((l.blockNumber-4380652)*3000+1637866385000));console.log("elap",_elap)
 	r0=(pars[1]==0?Number(l.data.substr(0,66)):Number("0x"+l.data.substr(66,64)))/10**(pars[1]==0?pars[2]:pars[3])
 	r1=(pars[1]==0?Number("0x"+l.data.substr(66,64)):Number(l.data.substr(0,66)))/10**(pars[1]==0?pars[3]:pars[2])
@@ -563,8 +563,8 @@ async function f2(d,l)
 		<span></span>
 		<div>
 			<div align="center">Liquidity Strength</div><br>
-			${desc[0]} : ${r0}<br><br>
-			${desc[1]} : ${r1}<br>
+			${desc[1]} : ${r0}<br><br>
+			${desc[0]} : ${r1}<br>
 		</div>
 		<span></span>
 		<div>
@@ -575,8 +575,8 @@ async function f2(d,l)
 		<span></span>
 		<div>
 			<div align="center">Current Rates</div><br>
-			1 ${desc[0]} = ${r1/r0} ${desc[1]}<br><br>
-			1 ${desc[1]} = ${r0/r1} ${desc[0]}<br>
+			1 ${desc[1]} = ${r1/r0} ${desc[0]}<br><br>
+			1 ${desc[0]} = ${r0/r1} ${desc[1]}<br>
 		</div>
 		<span></span>
 		<div>
